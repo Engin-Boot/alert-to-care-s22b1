@@ -3470,23 +3470,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Vinay\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Varnika Gautam\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\new case study\\alert-to-care-s22b1\\API.Test\\API.Test.csproj",
+      "projectUniqueName": "C:\\VARNIKA\\Boot ASGN 2\\API.Test\\API.Test.csproj",
       "projectName": "API.Test",
-      "projectPath": "D:\\new case study\\alert-to-care-s22b1\\API.Test\\API.Test.csproj",
-      "packagesPath": "C:\\Users\\Vinay\\.nuget\\packages\\",
-      "outputPath": "D:\\new case study\\alert-to-care-s22b1\\API.Test\\obj\\",
+      "projectPath": "C:\\VARNIKA\\Boot ASGN 2\\API.Test\\API.Test.csproj",
+      "packagesPath": "C:\\Users\\Varnika Gautam\\.nuget\\packages\\",
+      "outputPath": "C:\\VARNIKA\\Boot ASGN 2\\API.Test\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Vinay\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Varnika Gautam\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
