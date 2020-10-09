@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\VARNIKA\\Dummy1-alert-to-care\\alert-to-care-s22b1-master\\AlertToCareAPI\\AlertToCareAPI.csproj": {}
+    "C:\\VARNIKA\\New Boot\\alert-to-care-s22b1\\AlertToCareAPI\\AlertToCareAPI.csproj": {}
   },
   "projects": {
-    "C:\\VARNIKA\\Dummy1-alert-to-care\\alert-to-care-s22b1-master\\AlertToCareAPI\\AlertToCareAPI.csproj": {
+    "C:\\VARNIKA\\New Boot\\alert-to-care-s22b1\\AlertToCareAPI\\AlertToCareAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\VARNIKA\\Dummy1-alert-to-care\\alert-to-care-s22b1-master\\AlertToCareAPI\\AlertToCareAPI.csproj",
+        "projectUniqueName": "C:\\VARNIKA\\New Boot\\alert-to-care-s22b1\\AlertToCareAPI\\AlertToCareAPI.csproj",
         "projectName": "AlertToCareAPI",
-        "projectPath": "C:\\VARNIKA\\Dummy1-alert-to-care\\alert-to-care-s22b1-master\\AlertToCareAPI\\AlertToCareAPI.csproj",
+        "projectPath": "C:\\VARNIKA\\New Boot\\alert-to-care-s22b1\\AlertToCareAPI\\AlertToCareAPI.csproj",
         "packagesPath": "C:\\Users\\Varnika Gautam\\.nuget\\packages\\",
-        "outputPath": "C:\\VARNIKA\\Dummy1-alert-to-care\\alert-to-care-s22b1-master\\AlertToCareAPI\\obj\\",
+        "outputPath": "C:\\VARNIKA\\New Boot\\alert-to-care-s22b1\\AlertToCareAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Varnika Gautam\\AppData\\Roaming\\NuGet\\NuGet.Config",
