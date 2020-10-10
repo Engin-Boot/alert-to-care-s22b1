@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace AlertToCareAPI.Models
 {
-    public class PatientData
+    public class BedData
     {
         [Key]
-        public string PatientID { get; set; }
-        public string Name { get; set; }
-        public string BedId { get; set; }
-        public bool Vitals { get; set; }
+        public string BedID { get; set; }
+        public string Floor { get; set; }
+        public bool OccupancyStatus { get; set; }
+        public string Department { get; set; }
     }
 }
