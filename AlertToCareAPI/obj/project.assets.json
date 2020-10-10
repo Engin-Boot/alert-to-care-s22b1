@@ -9250,19 +9250,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Varnika Gautam\\.nuget\\packages\\": {}
+    "C:\\Users\\Vinay\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\VARNIKA\\New Boot\\alert-to-care-s22b1\\AlertToCareAPI\\AlertToCareAPI.csproj",
+      "projectUniqueName": "D:\\Hello\\Practice\\AlertToCareAPI\\AlertToCareAPI.csproj",
       "projectName": "AlertToCareAPI",
-      "projectPath": "C:\\VARNIKA\\New Boot\\alert-to-care-s22b1\\AlertToCareAPI\\AlertToCareAPI.csproj",
-      "packagesPath": "C:\\Users\\Varnika Gautam\\.nuget\\packages\\",
-      "outputPath": "C:\\VARNIKA\\New Boot\\alert-to-care-s22b1\\AlertToCareAPI\\obj\\",
+      "projectPath": "D:\\Hello\\Practice\\AlertToCareAPI\\AlertToCareAPI.csproj",
+      "packagesPath": "C:\\Users\\Vinay\\.nuget\\packages\\",
+      "outputPath": "D:\\Hello\\Practice\\AlertToCareAPI\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Varnika Gautam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Vinay\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
