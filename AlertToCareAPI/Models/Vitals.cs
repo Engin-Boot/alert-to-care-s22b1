@@ -8,9 +8,8 @@ namespace AlertToCareAPI.Models
 {
     public class Vitals
     {
-        
-        public string PatientID { get; set; }
         [Key]
+        public string PatientID { get; set; }
         public string Bpm { get; set; }
         public string Spo2 { get; set; }
         public string Pulse { get; set; }
