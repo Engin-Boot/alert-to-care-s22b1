@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace AlertToCareAPI.Models
 {
-    public class ICUVitals
+    public class Vitals
     {
-        [Key]
+        
         public string PatientID { get; set; }
+        [Key]
         public string Bpm { get; set; }
         public string Spo2 { get; set; }
         public string Pulse { get; set; }
