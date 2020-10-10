@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using AlertToCareAPI.Models;
 
 namespace AlertToCareAPI.Models
 {
@@ -18,6 +19,8 @@ namespace AlertToCareAPI.Models
             modelBuilder.Entity<PatientData>().ToTable("PatientData");
             
         }
+
+        public DbSet<AlertToCareAPI.Models.BedData> BedData { get; set; }
 
     }
 }

@@ -12,6 +12,6 @@ namespace AlertToCareAPI.Models
         public string PatientID { get; set; }
         public string Name { get; set; }
         public string BedId { get; set; }
-        public bool Vitals { get; set; }
+        public ICUVitals Vitals { get; set; }
     }
 }
