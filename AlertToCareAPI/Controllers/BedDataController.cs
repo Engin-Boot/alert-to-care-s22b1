@@ -40,6 +40,12 @@ namespace AlertToCareAPI.Controllers
 
             return bedData;
         }
+        //get: api/BedData/status/209
+        [HttpGet("status/{id}")]
+        public string GetBedStatus(string id)
+        {
+            return _context.BedData.Find(id).OccupancyStatus.ToString();
+        }
 
         // PUT: api/BedData/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for

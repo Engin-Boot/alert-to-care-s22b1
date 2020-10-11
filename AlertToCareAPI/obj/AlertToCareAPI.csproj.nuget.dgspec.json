@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Hello\\Practice\\AlertToCareAPI\\AlertToCareAPI.csproj": {}
+    "D:\\Hello\\new\\alert-to-care-s22b1\\AlertToCareAPI\\AlertToCareAPI.csproj": {}
   },
   "projects": {
-    "D:\\Hello\\Practice\\AlertToCareAPI\\AlertToCareAPI.csproj": {
+    "D:\\Hello\\new\\alert-to-care-s22b1\\AlertToCareAPI\\AlertToCareAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Hello\\Practice\\AlertToCareAPI\\AlertToCareAPI.csproj",
+        "projectUniqueName": "D:\\Hello\\new\\alert-to-care-s22b1\\AlertToCareAPI\\AlertToCareAPI.csproj",
         "projectName": "AlertToCareAPI",
-        "projectPath": "D:\\Hello\\Practice\\AlertToCareAPI\\AlertToCareAPI.csproj",
+        "projectPath": "D:\\Hello\\new\\alert-to-care-s22b1\\AlertToCareAPI\\AlertToCareAPI.csproj",
         "packagesPath": "C:\\Users\\Vinay\\.nuget\\packages\\",
-        "outputPath": "D:\\Hello\\Practice\\AlertToCareAPI\\obj\\",
+        "outputPath": "D:\\Hello\\new\\alert-to-care-s22b1\\AlertToCareAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
