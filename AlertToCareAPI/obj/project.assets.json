@@ -9256,11 +9256,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\VARNIKA\\NewBoot2\\AlertToCareAPI\\AlertToCareAPI\\AlertToCareAPI.csproj",
+      "projectUniqueName": "C:\\VARNIKA\\NewBoot2\\alert-to-care-s22b1\\AlertToCareAPI\\AlertToCareAPI.csproj",
       "projectName": "AlertToCareAPI",
-      "projectPath": "C:\\VARNIKA\\NewBoot2\\AlertToCareAPI\\AlertToCareAPI\\AlertToCareAPI.csproj",
+      "projectPath": "C:\\VARNIKA\\NewBoot2\\alert-to-care-s22b1\\AlertToCareAPI\\AlertToCareAPI.csproj",
       "packagesPath": "C:\\Users\\Varnika Gautam\\.nuget\\packages\\",
-      "outputPath": "C:\\VARNIKA\\NewBoot2\\AlertToCareAPI\\AlertToCareAPI\\obj\\",
+      "outputPath": "C:\\VARNIKA\\NewBoot2\\alert-to-care-s22b1\\AlertToCareAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Varnika Gautam\\AppData\\Roaming\\NuGet\\NuGet.Config",
