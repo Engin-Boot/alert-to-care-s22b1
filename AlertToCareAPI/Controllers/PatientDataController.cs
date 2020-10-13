@@ -109,6 +109,15 @@ namespace AlertToCareAPI.Controllers
                 return NotFound();
             }
 
+            var bedId = _context.PatientData.Find(id).BedID;
+            var bedList = _context.BedData.ToList();
+            foreach(var bed in bedList)
+            {
+                if(bed.BedID == bedId)
+                {
+                    bed.OccupancyStatus = "Vacant";
+                }
+            }
             _context.PatientData.Remove(patientData);
             await _context.SaveChangesAsync();
 
