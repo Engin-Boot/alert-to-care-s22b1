@@ -52,7 +52,14 @@ namespace AlertToCareAPI.Controllers
         [HttpGet("status/{id}")]
         public string GetBedStatus(string id)
         {
-            return _context.BedData.Find(id).OccupancyStatus;
+            try
+            {
+                return _context.BedData.Find(id).OccupancyStatus;
+            }
+            catch
+            {
+                throw new System.InvalidOperationException("Not a valid BedId");
+            }
             
         }
 

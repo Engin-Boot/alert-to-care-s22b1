@@ -469,7 +469,6 @@ D:\Hello\new2\alert-to-care-s22b1\AlertToCareAPI\bin\Debug\netcoreapp3.1\runtime
 D:\Hello\new2\alert-to-care-s22b1\AlertToCareAPI\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\Hello\new2\alert-to-care-s22b1\AlertToCareAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\Hello\new2\alert-to-care-s22b1\AlertToCareAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\Hello\new2\alert-to-care-s22b1\AlertToCareAPI\obj\Debug\netcoreapp3.1\AlertToCareAPI.csprojAssemblyReference.cache
 D:\Hello\new2\alert-to-care-s22b1\AlertToCareAPI\obj\Debug\netcoreapp3.1\AlertToCareAPI.AssemblyInfoInputs.cache
 D:\Hello\new2\alert-to-care-s22b1\AlertToCareAPI\obj\Debug\netcoreapp3.1\AlertToCareAPI.AssemblyInfo.cs
 D:\Hello\new2\alert-to-care-s22b1\AlertToCareAPI\obj\Debug\netcoreapp3.1\AlertToCareAPI.csproj.CoreCompileInputs.cache
@@ -481,3 +480,4 @@ D:\Hello\new2\alert-to-care-s22b1\AlertToCareAPI\obj\Debug\netcoreapp3.1\staticw
 D:\Hello\new2\alert-to-care-s22b1\AlertToCareAPI\obj\Debug\netcoreapp3.1\AlertToCareAPI.dll
 D:\Hello\new2\alert-to-care-s22b1\AlertToCareAPI\obj\Debug\netcoreapp3.1\AlertToCareAPI.pdb
 D:\Hello\new2\alert-to-care-s22b1\AlertToCareAPI\obj\Debug\netcoreapp3.1\AlertToCareAPI.genruntimeconfig.cache
+D:\Hello\new2\alert-to-care-s22b1\AlertToCareAPI\obj\Debug\netcoreapp3.1\AlertToCareAPI.csprojAssemblyReference.cache
