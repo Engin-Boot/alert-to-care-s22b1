@@ -102,22 +102,11 @@ namespace AlertToCareAPI.Controllers
         public async Task<ActionResult<BedData>> PostBedData(BedData bedData)
         {
             _context.BedData.Add(bedData);
-            try
+            if (BedDataExists(bedData.BedID))
             {
-                await _context.SaveChangesAsync();
+                return Conflict();
             }
-            catch (DbUpdateException)
-            {
-                if (BedDataExists(bedData.BedID))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
+            await _context.SaveChangesAsync();
             return CreatedAtAction("GetBedData", new { id = bedData.BedID }, bedData);
         }
 

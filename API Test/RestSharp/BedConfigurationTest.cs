@@ -5,7 +5,7 @@ using RestSharp.Serialization.Json;
 
 namespace RestSharp
 {
-    public class UnitTest3
+    public class BedConfigurationTest
     {
         [Fact]
         public void CheckResponseStatus()

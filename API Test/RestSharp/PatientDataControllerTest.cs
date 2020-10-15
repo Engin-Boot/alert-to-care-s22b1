@@ -4,7 +4,7 @@ using RestSharp.Serialization.Json;
 using Xunit;
 namespace RestSharp
 {
-    public class UnitTest2
+    public class PatientDataControllerTest
     {
         [Fact]
         public void TestGetPatient()

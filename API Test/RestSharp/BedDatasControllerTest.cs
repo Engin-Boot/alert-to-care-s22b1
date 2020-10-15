@@ -5,7 +5,7 @@ using System.Net;
 
 namespace RestSharp
 {
-    public class UnitTest1
+    public class BedDatasControllerTest
     {
         [Fact]
         public void TestGetBedData()
@@ -56,8 +56,8 @@ namespace RestSharp
             request.RequestFormat = DataFormat.Json;
             request.AddBody(new
             {
-                bedID = "B203",
-                floor = 3,
+                bedID = "B204",
+                floor = 2,
                 department = "Cardiac",
                 occupancyStatus = "Vacant"
             });
