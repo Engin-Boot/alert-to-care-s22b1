@@ -79,36 +79,26 @@ namespace AlertToCareAPI.Controllers
         public async Task<ActionResult<PatientData>> PostPatientData(PatientData patientData)
         {
             _context.PatientData.Add(patientData);
-            try
+            if (PatientDataExists(patientData.PatientID))
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (PatientDataExists(patientData.PatientID))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+                return Conflict();
             }
             var bedId = _context.PatientData.Find(patientData.PatientID).BedID;
             var bedList = _context.BedData.ToList();
             foreach (var bed in bedList)
             {
-                if (bed.BedID == bedId)
+                if (bed.BedID == bedId && bed.OccupancyStatus == "Vacant")
                 {
                     bed.OccupancyStatus = "Occupied";
+                    await _context.SaveChangesAsync();
+                    return CreatedAtAction("GetPatientData", new { id = patientData.PatientID }, patientData);
                 }
             }
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetPatientData", new { id = patientData.PatientID }, patientData);
+            return NotFound();
         }
 
         // DELETE: api/PatientData/5
+        //Request to discharge the patient
         [HttpDelete("{id}")]
         public async Task<ActionResult<PatientData>> DeletePatientData(string id)
         {
@@ -137,5 +127,6 @@ namespace AlertToCareAPI.Controllers
         {
             return _context.PatientData.Any(e => e.PatientID == id);
         }
+        
     }
 }

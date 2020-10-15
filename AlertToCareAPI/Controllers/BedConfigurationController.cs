@@ -45,7 +45,7 @@ namespace AlertToCareAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBedConfiguration(string id, BedConfiguration bedConfiguration)
         {
-            if (id != bedConfiguration.NoOfBeds)
+            if (id != bedConfiguration.NoOfBed)
             {
                 return BadRequest();
             }
@@ -84,7 +84,7 @@ namespace AlertToCareAPI.Controllers
             }
             catch (DbUpdateException)
             {
-                if (BedConfigurationExists(bedConfiguration.NoOfBeds))
+                if (BedConfigurationExists(bedConfiguration.NoOfBed))
                 {
                     return Conflict();
                 }
@@ -94,7 +94,7 @@ namespace AlertToCareAPI.Controllers
                 }
             }
 
-            return CreatedAtAction("GetBedConfiguration", new { id = bedConfiguration.NoOfBeds }, bedConfiguration);
+            return CreatedAtAction("GetBedConfiguration", new { id = bedConfiguration.NoOfBed }, bedConfiguration);
         }
 
         // DELETE: api/BedConfiguration/5
@@ -115,7 +115,7 @@ namespace AlertToCareAPI.Controllers
 
         private bool BedConfigurationExists(string id)
         {
-            return _context.BedConfiguration.Any(e => e.NoOfBeds == id);
+            return _context.BedConfiguration.Any(e => e.NoOfBed == id);
         }
     }
 }

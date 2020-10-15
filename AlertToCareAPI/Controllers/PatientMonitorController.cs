@@ -23,7 +23,7 @@ namespace AlertToCareAPI.Controllers
             Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
             foreach (var patient in patients)
             {
-                if (patient.Spo2 == "unstable" || patient.Bpm == "unstable" || patient.BodyTemp == "unstable" || patient.PulseRate == "unstable")
+                if (patient.Spo2 == "unstable" || patient.Bpm == "unstable")
                     keyValuePairs.Add(patient.PatientID,"unstable");
             }
             return keyValuePairs;
@@ -33,18 +33,21 @@ namespace AlertToCareAPI.Controllers
         [HttpGet("MONITOR/{id}")]
         public string GetVitalAlert(string id)
         {
-            var patientVitals = _context.PatientData.Find(id);
-            string vitalCheck = "";
-            if (patientVitals.Spo2 == "unstable")
-                vitalCheck += "SPo2 is unstable";
+            try 
+            {
 
-            if (patientVitals.BodyTemp == "unstable")
-                vitalCheck += "Body Temperature is unstable";
-            if (patientVitals.Bpm == "unstable")
-                vitalCheck += "BPM is unstable";
-            else
-                vitalCheck += "\nEverything Is Fine";
-            return vitalCheck;
-        }
+                var patientVitals = _context.PatientData.Find(id);
+                string vitalCheck = "";
+                if (patientVitals.Spo2 == "unstable" || patientVitals.Bpm == "unstable")
+                    vitalCheck += "SPo2 is unstable" + " "+ "Or BPM is unstable";
+                else
+                    vitalCheck += "Everything Is Fine";
+                return vitalCheck;
+            }
+            catch
+            {
+                return "Not a valid Patient ID";
+            }
+        }    
     }
 }

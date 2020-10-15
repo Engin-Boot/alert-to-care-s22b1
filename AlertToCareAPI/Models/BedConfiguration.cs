@@ -5,6 +5,7 @@ namespace AlertToCareAPI.Models
     public class BedConfiguration
     {
         [Key]
-        public string NoOfBeds { get; set; }
+        public string NoOfBed { get; set; }
+        public string Layout { get; set; }
     }
 }

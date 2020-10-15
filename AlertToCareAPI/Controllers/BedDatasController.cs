@@ -58,7 +58,7 @@ namespace AlertToCareAPI.Controllers
             }
             catch
             {
-                throw new System.InvalidOperationException("Not a valid BedId");
+                return "Not a valid BedID";
             }
             
         }
