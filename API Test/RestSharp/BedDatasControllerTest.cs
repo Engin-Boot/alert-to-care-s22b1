@@ -68,5 +68,19 @@ namespace RestSharp
             Assert.True(result == "Cardiac");
         }
 
+        [Fact]
+        public void TestFalseBedStatus()
+        {
+            var client = new RestClient("https://localhost:44369/");
+            var request = new RestRequest("api/BedDatas/status/B101", Method.GET);
+
+            var response = client.Execute(request);
+            var deserialize = new JsonDeserializer();
+            var output = deserialize.Deserialize<string>(response);
+            string status = "Vacant";
+            bool result = status.Equals(output);
+            Assert.False(result);
+        }
+
     }
 }

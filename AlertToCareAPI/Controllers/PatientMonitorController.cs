@@ -17,21 +17,23 @@ namespace AlertToCareAPI.Controllers
         }
 
         [HttpGet]
-        public Dictionary<string,string> GetPatientData()
+        public IEnumerable<PatientMonitor> GetVitalStatus()
         {
-            List<PatientData> patients =   _context.PatientData.ToList();
-            Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
+            List<PatientData> patients = _context.PatientData.ToList();
+            List<PatientMonitor> _patientMonitor = new List<PatientMonitor>();
             foreach (var patient in patients)
             {
                 if (patient.Spo2 == "unstable" || patient.Bpm == "unstable")
-                    keyValuePairs.Add(patient.PatientID,"unstable");
+                {
+                    _patientMonitor.Add(new PatientMonitor { PatientID = patient.PatientID, vitalStatus = "unstable" });
+                }
             }
-            return keyValuePairs;
+            return _patientMonitor;
 
         }
 
         [HttpGet("MONITOR/{id}")]
-        public string GetVitalAlert(string id)
+        public IActionResult GetVitalAlert(string id)
         {
             try 
             {
@@ -42,11 +44,11 @@ namespace AlertToCareAPI.Controllers
                     vitalCheck += "SPo2 is unstable" + " "+ "Or BPM is unstable";
                 else
                     vitalCheck += "Everything Is Fine";
-                return vitalCheck;
+                return Ok(vitalCheck);
             }
             catch
             {
-                return "Not a valid Patient ID";
+                return Ok("Not a valid Patient ID");
             }
         }    
     }
