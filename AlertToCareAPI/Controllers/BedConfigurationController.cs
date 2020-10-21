@@ -27,7 +27,7 @@ namespace AlertToCareAPI.Controllers
 
         // GET: api/BedConfiguration/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<BedConfiguration>> GetBedConfiguration(string id)
+        public async Task<ActionResult<BedConfiguration>> GetBedConfiguration(int id)
         {
             var bedConfiguration = await _context.BedConfiguration.FindAsync(id);
 
@@ -43,9 +43,9 @@ namespace AlertToCareAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutBedConfiguration(string id, BedConfiguration bedConfiguration)
+        public async Task<IActionResult> PutBedConfiguration(int id, BedConfiguration bedConfiguration)
         {
-            if (id != bedConfiguration.NoOfBed)
+            if (id != bedConfiguration.ConfigurationID)
             {
                 return BadRequest();
             }
@@ -84,7 +84,7 @@ namespace AlertToCareAPI.Controllers
             }
             catch (DbUpdateException)
             {
-                if (BedConfigurationExists(bedConfiguration.NoOfBed))
+                if (BedConfigurationExists(bedConfiguration.ConfigurationID ))
                 {
                     return Conflict();
                 }
@@ -99,7 +99,7 @@ namespace AlertToCareAPI.Controllers
 
         // DELETE: api/BedConfiguration/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<BedConfiguration>> DeleteBedConfiguration(string id)
+        public async Task<ActionResult<BedConfiguration>> DeleteBedConfiguration(int id)
         {
             var bedConfiguration = await _context.BedConfiguration.FindAsync(id);
             if (bedConfiguration == null)
@@ -113,9 +113,9 @@ namespace AlertToCareAPI.Controllers
             return bedConfiguration;
         }
 
-        private bool BedConfigurationExists(string id)
+        private bool BedConfigurationExists(int id)
         {
-            return _context.BedConfiguration.Any(e => e.NoOfBed == id);
+            return _context.BedConfiguration.Any(e => e.ConfigurationID == id);
         }
     }
 }

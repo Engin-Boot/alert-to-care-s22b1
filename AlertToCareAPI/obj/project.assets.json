@@ -9251,23 +9251,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Vinay\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\HP\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Hello\\new2\\alert-to-care-s22b1\\AlertToCareAPI\\AlertToCareAPI.csproj",
+      "projectUniqueName": "C:\\Users\\HP\\Desktop\\alert-to-care-s22b1\\AlertToCareAPI\\AlertToCareAPI.csproj",
       "projectName": "AlertToCareAPI",
-      "projectPath": "D:\\Hello\\new2\\alert-to-care-s22b1\\AlertToCareAPI\\AlertToCareAPI.csproj",
-      "packagesPath": "C:\\Users\\Vinay\\.nuget\\packages\\",
-      "outputPath": "D:\\Hello\\new2\\alert-to-care-s22b1\\AlertToCareAPI\\obj\\",
+      "projectPath": "C:\\Users\\HP\\Desktop\\alert-to-care-s22b1\\AlertToCareAPI\\AlertToCareAPI.csproj",
+      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\HP\\Desktop\\alert-to-care-s22b1\\AlertToCareAPI\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Vinay\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9346,7 +9342,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
