@@ -23,7 +23,14 @@ namespace AlertToCareAPI
         {
             services.AddCors(options =>
             {
-                options.AddPolicy(name: MyAllowSpecificOrigins, options => options.AllowAnyOrigin());
+                options.AddPolicy(name: MyAllowSpecificOrigins, options =>
+                {
+                    options.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+
+                }
+                );
             });
             services.AddDbContext<ICUContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));

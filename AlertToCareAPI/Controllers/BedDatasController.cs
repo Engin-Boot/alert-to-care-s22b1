@@ -130,5 +130,16 @@ namespace AlertToCareAPI.Controllers
         {
             return _context.BedData.Any(e => e.BedID == id);
         }
+
+        [HttpGet("patient-allocated-to-bed/{id}")]
+        public IQueryable<PatientData> GetPatientDataAllocatedToBed(string id)
+        {
+            var patientData =  _context.PatientData.FromSqlRaw("select * from dbo.PatientData where bedID = {0}", id);
+            if(patientData==null)
+            {
+                return null;
+            }
+            return patientData;
+        }
     }
 }
