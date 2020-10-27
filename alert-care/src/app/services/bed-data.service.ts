@@ -41,6 +41,15 @@ export class BedDataService {
      return observableStream;
    }
 
+   addBedData(bedData)
+   {
+     console.log(bedData);
+      let observableStream=this.httpClient.post(this.baseUrl,bedData);
+      //console.log(observableStream);
+
+      return observableStream;
+   }
+
    updateOccupancyStatus(bedId,status)
   {
     this.getBedDataById(bedId).subscribe(

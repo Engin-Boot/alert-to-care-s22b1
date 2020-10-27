@@ -12,6 +12,7 @@ import { AddNewPatientComponent } from './add-new-patient/add-new-patient.compon
 import {RoutingModuleRoutingModule} from './routing-module/routing-module-routing.module';
 import { HomeComponent } from './home/home.component';
 import { BedLayoutDisplayComponent } from './bed-layout-display/bed-layout-display.component';
+import { SetupComponent } from './setup/setup.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { BedLayoutDisplayComponent } from './bed-layout-display/bed-layout-displ
     UpdatePatientDetailsComponent,
     AddNewPatientComponent,
     HomeComponent,
-    BedLayoutDisplayComponent
+    BedLayoutDisplayComponent,
+    SetupComponent
   ],
   imports: [
     BrowserModule,HttpClientModule,FormsModule,ReactiveFormsModule,RoutingModuleRoutingModule
