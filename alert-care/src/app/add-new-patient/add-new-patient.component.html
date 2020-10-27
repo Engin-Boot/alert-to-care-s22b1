@@ -1,0 +1,113 @@
+
+<div class="container" style="margin-top:40px">
+    <div class ="row">
+        <div class ="col-md-6">
+            <div *ngIf="addSuccess" class="alert alert-success">
+               Patient Details Successfully Added
+            </div>
+            <div *ngIf="addFail" class="alert alert-danger">
+                Patient Details addition Unsuccessful ! 
+            </div>
+            <div class = "card shadow-sm p-3 mb-5 bg-white rounded" >
+                <h4 class="card-header text-center shadow-sm p-3 mb-5 bg-white rounded">Add Patient Details</h4>
+                <div class="card-body" style="align-content:center">
+                    <form class="form-group" [formGroup]="addPatientDetailsForm" (ngSubmit)="addPatientDetails(addPatientDetailsForm.value)">
+                        <div class ="form-row">
+                            <div class="form-group col-md-10">
+                                 <label>Patient ID</label>
+                                <input type="text" class="form-control"  placeholder="Enter Patient ID"  formControlName="patientID" >
+                                 <div *ngIf="patientID.invalid && (patientID.dirty || patientID.touched)">
+                                    <div *ngIf="patientID.errors.required">
+                                        <span class="text-danger">Patient ID Required</span>
+                                    </div>    
+                                </div>
+                            </div>
+                        </div>
+                         <div class ="form-row">
+                            <div class="form-group col-md-10">
+                                 <label>Bed ID</label>
+                                <input type="text" class="form-control"  placeholder="Enter Bed ID"  formControlName="bedID" readonly>
+                                <div *ngIf="bedID.invalid && (bedID.dirty || bedID.touched)">
+                                    <div *ngIf="bedID.errors.required">
+                                        <span class="text-danger">Bed ID Required</span>
+                                    </div>    
+                                </div>
+                            </div>
+                        </div>
+                        <div class ="form-row">
+                            <div class="form-group col-md-10">
+                                 <label>Name</label>
+                                <input type="text" class="form-control"  placeholder="Enter Name"  formControlName="name">
+                                <div *ngIf="name.invalid && (name.dirty || name.touched)">
+                                    <div *ngIf="name.errors.required">
+                                        <span class="text-danger">Name Required</span>
+                                    </div>    
+                                </div>
+                            </div>
+                        </div>
+                        <div class ="form-row">
+                            <div class="form-group col-md-10">
+                                 <label>Date of Birth</label>
+                                <input type="date" class="form-control"  placeholder="DD-MM-YYYY"  formControlName="dateOfBirth">
+                                <div *ngIf="dateOfBirth.invalid && (dateOfBirth.dirty || dateOfBirth.touched)">
+                                    <div *ngIf="dateOfBirth.errors.required">
+                                        <span class="text-danger">Date of Birth Required</span>
+                                    </div>    
+                                </div>
+                            </div>
+                        </div>
+                        <div class ="form-row">
+                            <div class="form-group col-md-10">
+                                 <label>Mobile Number</label>
+                                <input type="number" class="form-control"  placeholder="Enter Mobile Number"  formControlName="mobileNumber">
+                                <div *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)">
+                                    <div *ngIf="mobileNumber.errors.required">
+                                        <span class="text-danger">Mobile Number Required</span>
+                                    </div>    
+                                </div>
+                            </div>
+                        </div>
+                        <div class ="form-row">
+                            <div class="form-group col-md-10" >
+                                <label>SPO2 Level</label>
+                                <select class="form-control" formControlName="spo2">
+                                <option *ngFor="let level of levels" value="{{ level }}">{{
+                                level
+                                }}</option>
+                                </select>
+                                <div *ngIf="spo2.invalid && (spo2.dirty || spo2.touched)">
+                                    <div *ngIf="spo2.errors.required">
+                                        <span class="text-danger">SPO2 Level Required</span>
+                                    </div>   
+                                </div>
+                            </div>
+                        </div>
+                        <div class ="form-row">
+                            <div class="form-group col-md-10" >
+                                <label>BPM Level</label>
+                                <select class="form-control" formControlName="bpm">
+                                <option *ngFor="let level of levels" value="{{ level }}">{{
+                                level
+                                }}</option>
+                                </select>
+                                <div *ngIf="bpm.invalid && (bpm.dirty || bpm.touched)">
+                                    <div *ngIf="bpm.errors.required">
+                                        <span class="text-danger">BPM Level Required</span>
+                                    </div>   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <button
+                            [disabled]="!addPatientDetailsForm.valid"
+                            type="submit"
+                            class="btn btn-primary">
+                            Submit
+                          </button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

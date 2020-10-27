@@ -1,0 +1,71 @@
+
+<div class="container" style="margin-top:40px">
+    <div class ="row">
+        <div class ="col-md-6">
+            <div *ngIf="updateSuccess" class="alert alert-success">
+                Successfully Updated
+            </div>
+            <div *ngIf="updateFailed" class="alert alert-danger">
+                Update Unsuccessful ! 
+            </div>
+            <div class = "card shadow-sm p-3 mb-5 bg-white rounded" >
+                <h4 class="card-header text-center shadow-sm p-3 mb-5 bg-white rounded">Update Bed Details</h4>
+                <div class="card-body" style="align-content:center">
+                    <form class="form-group" [formGroup]="updateBedDetailsForm" (ngSubmit)="updateBedDetails(updateBedDetailsForm.value)">
+                        <div class ="form-row">
+                            <div class="form-group col-md-10">
+                                 <label>Bed ID</label>
+                                <input type="text" class="form-control"  placeholder="Enter BedID"  formControlName="bedID" readonly>
+                            </div>
+                        </div>
+                        <!--<div class ="form-row">
+                            <div class="form-group col-md-10">
+                                 <label>Floor</label>
+                                <input type="number" class="form-control"  placeholder="Enter Floor Number"  formControlName="floor">
+                                <div *ngIf="floor.invalid && (floor.dirty || floor.touched)">
+                                    <div *ngIf="floor.errors.required">
+                                        <span class="text-danger">Floor Number Required</span>
+                                    </div>    
+                                </div>
+                            </div>
+                        </div>-->
+                        <div class ="form-row">
+                            <div class="form-group col-md-10">
+                                 <label>Department</label>
+                                <input type="text" class="form-control"  placeholder="Enter Department Name"  formControlName="department">
+                                <div *ngIf="department.invalid && (department.dirty || department.touched)">
+                                    <div *ngIf="department.errors.required">
+                                        <span class="text-danger">Department Required</span>
+                                    </div>    
+                                </div>
+                            </div>
+                        </div>
+                        <div class ="form-row">
+                            <div class="form-group col-md-10" >
+                                <label>Occupancy Status</label>
+                                <select class="form-control" formControlName="occupancyStatus">
+                                <option *ngFor="let status of occupancyStatuses" value="{{ status }}">{{
+                                status
+                                }}</option>
+                                </select>
+                                <div *ngIf="occupancyStatus.invalid && (occupancyStatus.dirty || occupancyStatus.touched)">
+                                    <div *ngIf="occupancyStatus.errors.required">
+                                        <span class="text-danger">OccupancyStatus Required</span>
+                                    </div>   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <button
+                            [disabled]="!updateBedDetailsForm.valid"
+                            type="submit"
+                            class="btn btn-primary">
+                            Update
+                          </button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
