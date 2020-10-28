@@ -11,6 +11,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
       - name: Use Node 12.x
         uses: actions/setup-node@v1
         with:
@@ -22,6 +29,5 @@ jobs:
       - name: Build
         run: |
              cd alert-care
-             npm start
-             npm run build:prod
+             npm build
       
