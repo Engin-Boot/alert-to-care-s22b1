@@ -20,5 +20,5 @@ jobs:
             cd alert-care 
             npm install
       - name: Build
-        run: npm run build
+        run: npm run build:prod
       
