@@ -1,11 +1,11 @@
 
 <div class="container">
-    <table class="table table-bordered table-striped" style="align-content: right" >
+    <table class="table table-bordered table-striped" style="align-content: right;margin-top:35px" >
         <thead>
             <tr class="bg-dark" style="color: white">
                 <th>Bed Id</th>
                 <th>Department</th>
-                <th>Floor</th>
+                
                 <th>Occupancy Status</th>
                 <th >Manage</th>
             </tr>
@@ -14,7 +14,7 @@
             <tr *ngFor = "let bedData of bedDataList ">
                 <td >{{bedData.bedID}}</td>
                 <td>{{bedData.department}}</td>
-                <td>{{bedData.floor}}</td>
+                
                 <td>{{bedData.occupancyStatus}}</td>
                 <td>
                 <div class="row" style="margin-left: 5px">
@@ -25,11 +25,11 @@
                         <div class="dropdown-menu">
                             <a (click)="deletePatientEntry(bedData.bedID)"  class="dropdown-item"  ><i class="fas fa-trash"></i>Delete Patient</a>
                             <a (click)="updatePatientDetails(bedData.bedID)" class="dropdown-item"  ><i class="fas fa-edit"></i>Update Patient Details</a>
-                            <a (click)=" viewPatientDetails(bedData.bedID)" class="dropdown-item" ><i class="fas fa-eye"></i>View patient Details</a>
+                            <a (click)="viewPatientDetails(bedData.bedID)" class="dropdown-item" ><i class="fas fa-eye"></i>View patient Details</a>
                         </div>
                     </div>
-                      <a class="btn btn-sm btn-success" style="margin-right: 5px" routerLink="updateBedDetails/{{bedData.bedID}}">Update Bed Details</a>
-                      <button class="btn btn-sm btn-success" routerLink="addPatient/{{bedData.bedID}}" style="margin-right: 5px" [disabled]="!(disableManagePatientDetailsButtonWhenOccupancyStatusisVacant(bedData.occupancyStatus))">Add Patient</button> 
+                      <a class="btn btn-sm btn-success" style="margin-right: 5px" (click)="updateBedDetails(bedData.bedID)">Update Bed Details</a>
+                      <button class="btn btn-sm btn-success" (click)="addPatient(bedData.bedID)"  style="margin-right: 5px" [disabled]="!(disableManagePatientDetailsButtonWhenOccupancyStatusisVacant(bedData.occupancyStatus))">Add Patient</button> 
                 </div>
                 </td>
 
@@ -37,3 +37,5 @@
         <tbody>
     </table>
 </div>
+<router-outlet></router-outlet>
+<!--<app-bed-layout-display></app-bed-layout-display>-->

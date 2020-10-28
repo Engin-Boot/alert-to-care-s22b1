@@ -1,13 +1,13 @@
 export class BedData {
     bedID:string;
-    floor:number;
+    bedConfigurationID:number
     department:string;
     occupancyStatus:string;
 
-    constructor(bedId:string,floor:number,dept:string,status:string){
+    constructor(bedId:string,bedConfigurationID:number,dept:string,status:string){
 
         this.bedID = bedId;
-        this.floor = floor;
+        this.bedConfigurationID = bedConfigurationID;
         this.department = dept;
         this.occupancyStatus = status;
     }

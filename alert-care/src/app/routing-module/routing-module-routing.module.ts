@@ -5,13 +5,20 @@ import { UpdateBedDetailsComponent } from '../update-bed-details/update-bed-deta
 import { UpdatePatientDetailsComponent } from '../update-patient-details/update-patient-details.component';
 import { AddNewPatientComponent } from '../add-new-patient/add-new-patient.component';
 import {HomeComponent} from '../home/home.component';
+import {BedListCompComponent} from '../bed-list-comp/bed-list-comp.component';
+import {SetupComponent} from '../setup/setup.component';
 
 const routes: Routes = [
-  {path:'',component:HomeComponent},
+  {path:"" , redirectTo:'home', pathMatch:'full'},
+  {path:'home',component:HomeComponent},
+  
+  {path:'bedList/:configurationId',component:BedListCompComponent,children:[
+    {path:"" , redirectTo:'home', pathMatch:'full'},  
+  ]},
   {path:'viewPatient/:patientId',component:ViewPatientDetailsComponent},
-  {path:'updateBedDetails/:bedId',component:UpdateBedDetailsComponent},
+  {path:'addPatient/:bedId',component:AddNewPatientComponent},
   {path:'updatePatientDetails/:patientId',component:UpdatePatientDetailsComponent},
-  {path:'addPatient/:bedId',component:AddNewPatientComponent}
+  {path:'updateBedDetails/:bedId',component:UpdateBedDetailsComponent},
 ];
 
 @NgModule({

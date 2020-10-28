@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {BedDataService} from '../services/bed-data.service';
+import {BedConfigService} from '../services/bed-config.service';
 import {PatientDataService} from '../services/patient-data.service';
 import {BedData} from '../models/bed-data';
-import {Router} from '@angular/router';
+import {Router,ActivatedRoute} from '@angular/router';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-bed-list-comp',
@@ -13,17 +16,25 @@ export class BedListCompComponent implements OnInit {
 check:boolean;
 bedDataServiceRef:BedDataService;
 patientDataServiceRef:PatientDataService;
+bedConfServiceRef:BedConfigService;
+location:Location
 bedDataList:BedData[];
 route:Router;
+acr:ActivatedRoute;
+id;
 
-  constructor(bedDataServiceRef:BedDataService, route:Router,patientDataServiceRef:PatientDataService) {
+  constructor(bedDataServiceRef:BedDataService, route:Router,patientDataServiceRef:PatientDataService,location:Location,bedConfServiceRef:BedConfigService,acr:ActivatedRoute) {
     this.patientDataServiceRef=patientDataServiceRef;
     this.bedDataServiceRef =bedDataServiceRef;
     this.route=route;
+    this.bedConfServiceRef = bedConfServiceRef;
+    this.location=location;
+    this.acr =  acr;
    }
 
   ngOnInit(): void {
-    this.bedDataServiceRef.getBedData().subscribe(data=>{
+    this.id=this.acr.snapshot.params['configurationId'];
+    this.bedConfServiceRef.getBedsForGivenBedConfigurationId(this.id).subscribe(data=>{
       console.log(data);
       this.bedDataList=data;
     })
@@ -49,6 +60,7 @@ route:Router;
     this.bedDataServiceRef.getPatientAllocatedToBed(bedId).subscribe(
       data=>{ 
         this.patientDataServiceRef.deletePatientData(data[0].patientID).subscribe(succ=>{alert("Patient entry deleted successfully");
+          window.location.reload();
           this.bedDataServiceRef.updateOccupancyStatus(bedId,"Vacant");
           },
           err=>{alert("Patient entry deletion failed")}
@@ -78,6 +90,16 @@ route:Router;
     },err=>{
       alert("Patient Details Not Found!!!")
     })
+  }
+
+  addPatient(id)
+  {
+    this.route.navigateByUrl('addPatient/'+id)
+  }
+
+  updateBedDetails(id)
+  {
+    this.route.navigateByUrl('updateBedDetails/'+id)
   }
 
   

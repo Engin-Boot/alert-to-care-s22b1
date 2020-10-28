@@ -41,6 +41,9 @@ export class BedDataService {
      return observableStream;
    }
 
+   
+
+   
    addBedData(bedData)
    {
      console.log(bedData);

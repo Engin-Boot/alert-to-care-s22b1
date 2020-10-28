@@ -14,7 +14,6 @@ import { HomeComponent } from './home/home.component';
 import { BedLayoutDisplayComponent } from './bed-layout-display/bed-layout-display.component';
 import { SetupComponent } from './setup/setup.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

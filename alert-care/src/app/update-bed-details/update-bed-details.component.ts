@@ -45,6 +45,7 @@ export class UpdateBedDetailsComponent implements OnInit {
     this.bedDataServiceRef.updateBedData(this.id,data).subscribe(data=>{
       this.updateSuccess=true;
       this.updateBedDetailsForm.reset(); 
+     
     },err=>{
       this.updateFailed=true;
     })

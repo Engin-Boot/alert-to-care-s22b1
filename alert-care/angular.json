@@ -119,10 +119,6 @@
           }
         }
       }
-    }
-  },
-  "defaultProject": "alert-care",
-  "cli": {
-    "analytics": false
-  }
+    }},
+  "defaultProject": "alert-care"
 }
