@@ -22,5 +22,5 @@ jobs:
       - name: Build
         run: |
              cd alert-care
-             npm run build:ci
+             npm run build:prod
       
