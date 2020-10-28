@@ -61,7 +61,7 @@ id;
       data=>{ 
         this.patientDataServiceRef.deletePatientData(data[0].patientID).subscribe(succ=>{alert("Patient entry deleted successfully");
           window.location.reload();
-          this.bedDataServiceRef.updateOccupancyStatus(bedId,"Vacant");
+          this.bedDataServiceRef.updateOccupancyStatusAndDepartmentWhenPatientDeleted(bedId);
           },
           err=>{alert("Patient entry deletion failed")}
         )

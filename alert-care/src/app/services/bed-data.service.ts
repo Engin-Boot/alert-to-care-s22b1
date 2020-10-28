@@ -53,7 +53,22 @@ export class BedDataService {
       return observableStream;
    }
 
-   updateOccupancyStatus(bedId,status)
+   updateOccupancyStatusAndDepartmentWhenPatientDeleted(bedId)
+  {
+    this.getBedDataById(bedId).subscribe(
+      data=>{
+        var updatedBedDetails = data;
+        updatedBedDetails.occupancyStatus = "Vacant";
+        updatedBedDetails.department = "";
+        this.updateBedData(bedId,updatedBedDetails).subscribe(
+          succ=>{console.log("occupancy status and Department updated")},
+          err=>{console.log("occupancy status and Department update failed")}
+        )
+      }
+    )
+  }
+
+  updateOccupancyStatus(bedId,status)
   {
     this.getBedDataById(bedId).subscribe(
       data=>{

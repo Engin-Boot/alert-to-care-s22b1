@@ -19,11 +19,7 @@ export class BedLayoutDisplayComponent implements OnInit {
   ngOnInit(): void {
      this.connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:44369/alert").build();
 
-     this.connection.start()  
-    .then(() => { 
-       
-      console.log('MessageHub Connected');  
-    }); 
+     
      
      this.connection.start()  
     .then(() => { 
