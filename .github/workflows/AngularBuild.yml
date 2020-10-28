@@ -29,5 +29,5 @@ jobs:
       - name: Build
         run: |
              cd alert-care
-             npm build
+             npm run-script build
       
