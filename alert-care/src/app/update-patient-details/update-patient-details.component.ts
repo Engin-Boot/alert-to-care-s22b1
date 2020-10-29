@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl,Validators} from '@angular/forms'
+import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {PatientDataService} from '../services/patient-data.service';
 
@@ -8,38 +8,39 @@ import {PatientDataService} from '../services/patient-data.service';
   templateUrl: './update-patient-details.component.html',
   styleUrls: ['./update-patient-details.component.css']
 })
-export class UpdatePatientDetailsComponent implements OnInit {
-levels = ['stable','unstable']
-updatePatientDetailsForm;
-route:ActivatedRoute;
-patientDataServiceRef:PatientDataService;
-id;
-updateSuccess:boolean;
-updateFail:boolean;
 
-  constructor(patientDataServiceRef:PatientDataService,route:ActivatedRoute) {
-    this.route=route;
-    this.patientDataServiceRef=patientDataServiceRef;
+export class UpdatePatientDetailsComponent implements OnInit {
+levels = ['stable', 'unstable'];
+updatePatientDetailsForm;
+route: ActivatedRoute;
+patientDataServiceRef: PatientDataService;
+id;
+updateSuccess: boolean;
+updateFail: boolean;
+
+  constructor(patientDataServiceRef: PatientDataService, route: ActivatedRoute) {
+    this.route = route;
+    this.patientDataServiceRef = patientDataServiceRef;
    }
 
   ngOnInit(): void {
-    this.id=this.route.snapshot.params['patientId'];
+    this.id = this.route.snapshot.params['patientId'];
     this.updatePatientDetailsForm = new FormGroup({
-      patientID:new FormControl(''),
-      bedID:new FormControl('',Validators.required),
-      name: new FormControl('',Validators.required),
-      mobileNumber:new FormControl('',Validators.required),
-      dateOfBirth:new FormControl('',Validators.required),
-      spo2:new FormControl('',Validators.required),
-      bpm:new FormControl('',Validators.required)
-    })
+      patientID: new FormControl(''),
+      bedID: new FormControl('', Validators.required),
+      name: new FormControl('', Validators.required),
+      mobileNumber: new FormControl('', Validators.required),
+      dateOfBirth: new FormControl('', Validators.required),
+      spo2: new FormControl('', Validators.required),
+      bpm: new FormControl('', Validators.required)
+    });
     
     this.patientDataServiceRef.getPatientDataById(this.id).subscribe(
-      data=>{
+      data => {
         console.log(data);
         this.updatePatientDetailsForm.setValue(data);
       }
-    )
+    );
   }
 
   get patientID()
@@ -80,15 +81,15 @@ updateFail:boolean;
   updatePatientDetails(data)
   {
     console.log(data);
-    this.patientDataServiceRef.updatePatientData(this.id,data).subscribe(
-      data=>{
-        this.updateSuccess=true;
+    this.patientDataServiceRef.updatePatientData(this.id, data).subscribe(
+      data => {
+        this.updateSuccess = true;
         this.updatePatientDetailsForm.reset();
       },
       err=>{
-        this.updateFail=true;
+        this.updateFail = true;
       }
-    ) 
+    ) ;
   }
 
 }

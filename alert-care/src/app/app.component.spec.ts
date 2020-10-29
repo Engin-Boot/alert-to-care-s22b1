@@ -7,8 +7,7 @@ describe('AppComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [
         AppComponent
-      ],
-      
+      ],  
     }).compileComponents();
   });
 

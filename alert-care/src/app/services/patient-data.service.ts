@@ -1,20 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {PatientData} from "../models/patient-data"
+import {PatientData} from '../models/patient-data';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class PatientDataService {
- httpClient:HttpClient;
-baseUrl:string="https://localhost:44369/api/PatientData/";
-  constructor(httpClient:HttpClient) { 
-    this.httpClient=httpClient;
+ httpClient: HttpClient;
+baseUrl: string = 'https://localhost:5001/api/PatientData/';
+
+  constructor(httpClient: HttpClient) { 
+    this.httpClient = httpClient;
   }
 
   getPatientDataById(id)
   {
-    let observableStream=this.httpClient.get<PatientData>(this.baseUrl+id);
+    let observableStream = this.httpClient.get<PatientData>(this.baseUrl+id);
     return observableStream;
   }
 
@@ -32,7 +34,7 @@ baseUrl:string="https://localhost:44369/api/PatientData/";
 
   deletePatientData(id)
   {
-    let observableStream = this.httpClient.delete(this.baseUrl+id)
+    let observableStream = this.httpClient.delete(this.baseUrl+id);
     return observableStream;
   }
 }

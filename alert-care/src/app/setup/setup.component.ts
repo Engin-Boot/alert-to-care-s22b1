@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { FormGroup, FormControl,Validators} from '@angular/forms';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { BedConfigService} from '../services/bed-config.service';
 import { BedDataService } from '../services/bed-data.service';
 import { BedConfig} from '../models/bed-config.model';
@@ -12,20 +12,19 @@ import {ApiLoggerServiceService} from '../services/api-logger-service.service';
   templateUrl: './setup.component.html',
   styleUrls: ['./setup.component.css']
 })
-export class SetupComponent implements OnInit{  
-
+export class SetupComponent implements OnInit{ 
   setupDetailsForm;
-  route:Router;
-  layoutList = ["L-Shaped","Opposite"];
+  route: Router;
+  layoutList = ['L-Shaped', 'Opposite'];
   bedConfigData;
   bedData;
-  apiLogger:ApiLoggerServiceService
+  apiLogger: ApiLoggerServiceService;
 
   constructor(
-    private bedConfigService:BedConfigService,
-    private bedDataService:BedDataService,
-    route:Router,
-    apiLogger:ApiLoggerServiceService
+    private bedConfigService: BedConfigService,
+    private bedDataService: BedDataService,
+    route: Router,
+    apiLogger: ApiLoggerServiceService
   ){
     this.route = route,
     this.apiLogger = apiLogger
@@ -36,11 +35,11 @@ export class SetupComponent implements OnInit{
     this.setupDetailsForm = new FormGroup(
       {
         
-        floor:new FormControl('',Validators.required),
-        noOfBed:new FormControl('',Validators.required),
-        layout:new FormControl('',Validators.required)
+        floor:new FormControl('', Validators.required),
+        noOfBed:new FormControl('', Validators.required),
+        layout:new FormControl('', Validators.required)
       }
-    ) 
+    );
   }
 
   get floor()
@@ -69,12 +68,11 @@ export class SetupComponent implements OnInit{
     .subscribe(
       data => {
         console.log(data);
-        //this.bedConfigData = data;
 
         for(let i = 1; i<= parseInt(this.bedConfigData.noOfBed); i++){
 
           let id = "B" + data.configurationID + this.bedConfigData.floor + i;
-          this.bedData = new BedData(id,data.configurationID,"","Vacant");
+          this.bedData = new BedData(id,data.configurationID,'','Vacant');
           
           this.bedDataService.addBedData(this.bedData)
           .subscribe(
@@ -87,7 +85,7 @@ export class SetupComponent implements OnInit{
 
       },
       error => this.apiLogger.write(error)
-    )
+    );
 
   }
 }

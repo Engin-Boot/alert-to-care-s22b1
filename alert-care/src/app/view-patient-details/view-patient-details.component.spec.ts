@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ViewPatientDetailsComponent } from './view-patient-details.component';
 
 describe('ViewPatientDetailsComponent', () => {
@@ -8,8 +7,7 @@ describe('ViewPatientDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewPatientDetailsComponent ],
-      
+      declarations: [ ViewPatientDetailsComponent ],  
     })
     .compileComponents();
   });

@@ -9,16 +9,16 @@ import {BedListCompComponent} from '../bed-list-comp/bed-list-comp.component';
 import {SetupComponent} from '../setup/setup.component';
 
 const routes: Routes = [
-  {path:"" , redirectTo:'home', pathMatch:'full'},
-  {path:'home',component:HomeComponent},
+  {path: "" , redirectTo: 'home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
   
-  {path:'bedList/:configurationId',component:BedListCompComponent,children:[
-    {path:"" , redirectTo:'home', pathMatch:'full'},  
+  {path: 'bedList/:configurationId', component: BedListCompComponent, children: [
+    {path: "" , redirectTo: 'home', pathMatch: 'full'},  
   ]},
-  {path:'viewPatient/:patientId',component:ViewPatientDetailsComponent},
-  {path:'addPatient/:bedId',component:AddNewPatientComponent},
-  {path:'updatePatientDetails/:patientId',component:UpdatePatientDetailsComponent},
-  {path:'updateBedDetails/:bedId',component:UpdateBedDetailsComponent},
+  {path: 'viewPatient/:patientId', component: ViewPatientDetailsComponent},
+  {path: 'addPatient/:bedId', component: AddNewPatientComponent},
+  {path: 'updatePatientDetails/:patientId', component: UpdatePatientDetailsComponent},
+  {path: 'updateBedDetails/:bedId', component: UpdateBedDetailsComponent},
 ];
 
 @NgModule({

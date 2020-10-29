@@ -8,24 +8,23 @@ import {BedData} from '../models/bed-data';
 })
 export class BedConfigService {
 
-  httpClient:HttpClient;
-  baseUrl:string= "https://localhost:44369/api/BedConfiguration/";
-  constructor(httpClient:HttpClient) {
+  httpClient: HttpClient;
+  baseUrl: string= 'https://localhost:5001/api/BedConfiguration/';
+
+  constructor(httpClient: HttpClient) {
  
-    this.httpClient=httpClient;
+    this.httpClient = httpClient;
    }
 
    addBedConfigData(bedConfigData)
    {
-      let observableStream=this.httpClient.post<BedConfig>(this.baseUrl,bedConfigData);
-      //.log(observableStream);
-
+      let observableStream = this.httpClient.post<BedConfig>(this.baseUrl,bedConfigData);
       return observableStream;
    }
 
    getBedsForGivenBedConfigurationId(id)
    {
-     let observableStream = this.httpClient.get<BedData[]>(this.baseUrl+"beds-assigned-for-configuration/"+id)
+     let observableStream = this.httpClient.get<BedData[]>(this.baseUrl+'beds-assigned-for-configuration/'+id);
      return observableStream;
    }
 }

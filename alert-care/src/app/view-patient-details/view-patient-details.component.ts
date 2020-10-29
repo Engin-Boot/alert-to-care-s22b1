@@ -11,22 +11,22 @@ import {PatientData} from '../models/patient-data';
   styleUrls: ['./view-patient-details.component.css']
 })
 export class ViewPatientDetailsComponent implements OnInit {
-route:ActivatedRoute;
-patientDataServiceRef:PatientDataService;
-patientData:PatientData;
+route: ActivatedRoute;
+patientDataServiceRef: PatientDataService;
+patientData: PatientData;
 id;
 
-  constructor(patientDataServiceRef:PatientDataService,route:ActivatedRoute) {
+  constructor(patientDataServiceRef: PatientDataService, route: ActivatedRoute) {
     this.patientData = new PatientData();
-    this.route=route;
-    this.patientDataServiceRef=patientDataServiceRef;
+    this.route = route;
+    this.patientDataServiceRef = patientDataServiceRef;
    }
 
   ngOnInit(): void {
-    this.id=this.route.snapshot.params['patientId'];
+    this.id = this.route.snapshot.params['patientId'];
     this.patientDataServiceRef.getPatientDataById(this.id).subscribe(
-      data=>{
-        console.log(data)
+      data => {
+        console.log(data);
         this.patientData.patientID = data.patientID;
         this.patientData.name = data.name;
         this.patientData.dateOfBirth = data.dateOfBirth;
@@ -35,7 +35,7 @@ id;
         this.patientData.bpm = data.bpm;
         this.patientData.bedID = data.bedID;
       }
-    )
+    );
   }
 
 }

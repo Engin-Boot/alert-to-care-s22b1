@@ -8,19 +8,17 @@ import {PatientData} from '../models/patient-data';
 })
 export class BedDataService {
 
-  httpClient:HttpClient;
-  baseUrl:string="https://localhost:44369/api/BedDatas/";
-  constructor(httpClient:HttpClient) {
+  httpClient: HttpClient;
+  baseUrl: string = 'https://localhost:5001/api/BedDatas/';
+  constructor(httpClient: HttpClient) {
  
-    this.httpClient=httpClient;
+    this.httpClient = httpClient;
    }
 
    getBedData()
    {
-     let observableStream=this.httpClient.get<BedData[]>(this.baseUrl);
-    console.log(observableStream);
-     
-    return observableStream;
+     let observableStream = this.httpClient.get<BedData[]>(this.baseUrl);
+     return observableStream;
    }
 
    getBedDataById(id)
@@ -37,19 +35,13 @@ export class BedDataService {
 
    getPatientAllocatedToBed(id)
    {
-     let observableStream = this.httpClient.get<PatientData>(this.baseUrl+"patient-allocated-to-bed/"+id);
+     let observableStream = this.httpClient.get<PatientData>(this.baseUrl+'patient-allocated-to-bed/'+id);
      return observableStream;
    }
 
-   
-
-   
    addBedData(bedData)
    {
-     console.log(bedData);
-      let observableStream=this.httpClient.post(this.baseUrl,bedData);
-      //console.log(observableStream);
-
+      let observableStream = this.httpClient.post(this.baseUrl,bedData);
       return observableStream;
    }
 
@@ -57,12 +49,12 @@ export class BedDataService {
   {
     this.getBedDataById(bedId).subscribe(
       data=>{
-        var updatedBedDetails = data;
-        updatedBedDetails.occupancyStatus = "Vacant";
-        updatedBedDetails.department = "";
+        let updatedBedDetails = data;
+        updatedBedDetails.occupancyStatus = 'Vacant';
+        updatedBedDetails.department = '';
         this.updateBedData(bedId,updatedBedDetails).subscribe(
-          succ=>{console.log("occupancy status and Department updated")},
-          err=>{console.log("occupancy status and Department update failed")}
+          succ=>{console.log('occupancy status and Department updated');},
+          err=>{console.log('occupancy status and Department update failed');}
         )
       }
     )
@@ -75,8 +67,8 @@ export class BedDataService {
         var updatedBedDetails = data;
         updatedBedDetails.occupancyStatus = status;
         this.updateBedData(bedId,updatedBedDetails).subscribe(
-          succ=>{console.log("occupancy status updated")},
-          err=>{console.log("occupancy status update failed")}
+          succ=>{console.log('occupancy status updated');},
+          err=>{console.log('occupancy status update failed');}
         )
       }
     )
