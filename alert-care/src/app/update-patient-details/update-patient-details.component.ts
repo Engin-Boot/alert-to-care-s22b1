@@ -80,13 +80,14 @@ updateFail: boolean;
 
   updatePatientDetails(data)
   {
+    data.mobileNumber.toString();
     console.log(data);
     this.patientDataServiceRef.updatePatientData(this.id, data).subscribe(
       data => {
         this.updateSuccess = true;
         this.updatePatientDetailsForm.reset();
       },
-      err=>{
+      err => {
         this.updateFail = true;
       }
     ) ;
