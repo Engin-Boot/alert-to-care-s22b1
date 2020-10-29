@@ -82,14 +82,7 @@ namespace AlertToCareAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BedDataExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return CheckDbConcurrencyException(id);
             }
 
             return NoContent();
@@ -140,6 +133,19 @@ namespace AlertToCareAPI.Controllers
                 return null;
             }
             return patientData;
+        }
+
+        private IActionResult CheckDbConcurrencyException(string id)
+        {
+
+            if (!BedDataExists(id))
+            {
+                return NotFound();
+            }
+            else
+            {
+                return NoContent();
+            }
         }
     }
 }

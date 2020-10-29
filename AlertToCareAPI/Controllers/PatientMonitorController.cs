@@ -10,10 +10,12 @@ namespace AlertToCareAPI.Controllers
     public class PatientMonitorController : ControllerBase
     {
         private readonly ICUContext _context;
+        
 
         public PatientMonitorController(ICUContext context)
         {
             _context = context;
+          
         }
 
         [HttpGet]
@@ -23,7 +25,7 @@ namespace AlertToCareAPI.Controllers
             List<PatientMonitor> _patientMonitor = new List<PatientMonitor>();
             foreach (var patient in patients)
             {
-                if (patient.Spo2 == "unstable" || patient.Bpm == "unstable")
+                if (CheckUnstableVitals(patient.Spo2,patient.Bpm))
                 {
                     _patientMonitor.Add(new PatientMonitor { PatientID = patient.PatientID, vitalStatus = "unstable" });
                 }
@@ -40,7 +42,7 @@ namespace AlertToCareAPI.Controllers
 
                 var patientVitals = _context.PatientData.Find(id);
                 string vitalCheck = "";
-                if (patientVitals.Spo2 == "unstable" || patientVitals.Bpm == "unstable")
+                if (CheckUnstableVitals(patientVitals.Spo2,patientVitals.Bpm))
                     vitalCheck += "SPo2 is unstable" + " "+ "Or BPM is unstable";
                 else
                     vitalCheck += "Everything Is Fine";
@@ -50,6 +52,13 @@ namespace AlertToCareAPI.Controllers
             {
                 return Ok("Not a valid Patient ID");
             }
-        }    
+        } 
+
+        private bool CheckUnstableVitals(string spo2,string bpm)
+        {
+            return (spo2 == "unstable" || bpm == "unstable");
+        }
+        
+      
     }
 }

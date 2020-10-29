@@ -58,14 +58,7 @@ namespace AlertToCareAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BedConfigurationExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+               return CheckDbConcurrencyException(id);
             }
 
             return NoContent();
@@ -116,6 +109,30 @@ namespace AlertToCareAPI.Controllers
         private bool BedConfigurationExists(int id)
         {
             return _context.BedConfiguration.Any(e => e.ConfigurationID == id);
+        }
+
+        [HttpGet("beds-assigned-for-configuration/{id}")]
+        public IQueryable<BedData> GetBedsForGivenBedConfigurationId(int id)
+        {
+            var bedData = _context.BedData.FromSqlRaw("select * from dbo.BedData where bedConfigurationID = {0}", id);
+            if (bedData == null)
+            {
+                return null;
+            }
+            return bedData;
+        }
+
+        private IActionResult CheckDbConcurrencyException(int id)
+        {
+
+            if (!BedConfigurationExists(id))
+            {
+                return NotFound();
+            }
+            else
+            {
+                return NoContent();
+            }
         }
     }
 }
