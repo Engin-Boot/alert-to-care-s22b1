@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {PatientDataService} from '../services/patient-data.service';
+import {BedDataService} from '../services/bed-data.service';
 
 @Component({
   selector: 'app-update-patient-details',
@@ -17,14 +18,16 @@ patientDataServiceRef: PatientDataService;
 id;
 updateSuccess: boolean;
 updateFail: boolean;
+bedDataServiceRef: BedDataService;
 
-  constructor(patientDataServiceRef: PatientDataService, route: ActivatedRoute) {
+  constructor(patientDataServiceRef: PatientDataService, route: ActivatedRoute, bedDataServiceRef: BedDataService) {
     this.route = route;
     this.patientDataServiceRef = patientDataServiceRef;
+    this.bedDataServiceRef = bedDataServiceRef;
    }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['patientId'];
+    this.id = this.route.snapshot.params['bedId'];
     this.updatePatientDetailsForm = new FormGroup({
       patientID: new FormControl(''),
       bedID: new FormControl('', Validators.required),
@@ -35,12 +38,18 @@ updateFail: boolean;
       bpm: new FormControl('', Validators.required)
     });
     
-    this.patientDataServiceRef.getPatientDataById(this.id).subscribe(
-      data => {
-        console.log(data);
-        this.updatePatientDetailsForm.setValue(data);
-      }
+
+    this.bedDataServiceRef.getPatientAllocatedToBed(this.id).subscribe( data => {
+        this.patientDataServiceRef.getPatientDataById(data[0].patientID).subscribe(
+          data => {
+            console.log(data);
+            this.updatePatientDetailsForm.setValue(data);
+          }
+        );
+    },
+    err => { alert('Patient Details Not Found!!!'); }
     );
+  
   }
 
   get patientID()
@@ -82,15 +91,16 @@ updateFail: boolean;
   {
     data.mobileNumber.toString();
     console.log(data);
-    this.patientDataServiceRef.updatePatientData(this.id, data).subscribe(
+    this.patientDataServiceRef.updatePatientData(data.patientID, data).subscribe(
       data => {
         this.updateSuccess = true;
+        console.log('true');
         this.updatePatientDetailsForm.reset();
       },
-      err => {
+      err=>{
         this.updateFail = true;
       }
-    ) ;
+    );
   }
 
 }

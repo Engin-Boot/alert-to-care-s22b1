@@ -73,23 +73,12 @@ id;
 
   updatePatientDetails(bedId)
   {
-    
-    this.bedDataServiceRef.getPatientAllocatedToBed(bedId).subscribe(data=>{
-     
-      this.route.navigate(['updatePatientDetails',data[0].patientID]);
-    },
-    err=>{
-      alert('Patient Details Not Found!!!');
-    });
+    this.route.navigateByUrl('updatePatientDetails/'+bedId);
   }
 
   viewPatientDetails(bedId)
   {
-    this.bedDataServiceRef.getPatientAllocatedToBed(bedId).subscribe(data=>{
-      this.route.navigate(['viewPatient',data[0].patientID]);
-    },err=>{
-      alert('Patient Details Not Found!!!');
-    });
+    this.route.navigateByUrl('viewPatient/'+bedId);
   }
 
   addPatient(id)

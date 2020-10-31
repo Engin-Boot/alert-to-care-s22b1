@@ -4,11 +4,6 @@ export class BedData {
     department: string;
     occupancyStatus: string;
 
-    constructor(bedId:string, bedConfigurationID:number, dept:string, status:string){
-
-        this.bedID = bedId;
-        this.bedConfigurationID = bedConfigurationID;
-        this.department = dept;
-        this.occupancyStatus = status;
-    }
+    
+    
 }

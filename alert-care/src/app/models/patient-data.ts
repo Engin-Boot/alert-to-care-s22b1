@@ -2,7 +2,7 @@ export class PatientData {
     patientID: string;
     name: string;
     dateOfBirth: string;
-    mobileNumber: number;
+    mobileNumber: string;
     spo2: string;
     bpm: string;
     bedID: string;

@@ -17,7 +17,7 @@ export class SetupComponent implements OnInit{
   route: Router;
   layoutList = ['L-Shaped', 'Opposite'];
   bedConfigData;
-  bedData;
+  bedData: BedData;
   apiLogger: ApiLoggerServiceService;
 
   constructor(
@@ -26,8 +26,9 @@ export class SetupComponent implements OnInit{
     route: Router,
     apiLogger: ApiLoggerServiceService
   ){
-    this.route = route,
-    this.apiLogger = apiLogger
+    this.route = route;
+    this.apiLogger = apiLogger;
+    this.bedData = new BedData();
   }
 
   ngOnInit(){
@@ -72,7 +73,11 @@ export class SetupComponent implements OnInit{
         for(let i = 1; i<= parseInt(this.bedConfigData.noOfBed); i++){
 
           let id = "B" + data.configurationID + this.bedConfigData.floor + i;
-          this.bedData = new BedData(id,data.configurationID,'','Vacant');
+          this.bedData.bedID = id;
+          this.bedData.bedConfigurationID = data.configurationID;
+          this.bedData.department = '';
+          this.bedData.occupancyStatus = 'Vacant';
+          //this.bedData = new BedData(id,data.configurationID,'','Vacant');
           
           this.bedDataService.addBedData(this.bedData)
           .subscribe(
