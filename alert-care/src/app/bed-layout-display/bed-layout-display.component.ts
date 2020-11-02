@@ -30,7 +30,7 @@ export class BedLayoutDisplayComponent implements OnInit {
     this.connection.on('ReceiveAlerts', (data) => { 
       console.log('server Data');
       this.msg = data;
-        //console.log(this.msg);
+      console.log(this.msg);
          
     });  
     

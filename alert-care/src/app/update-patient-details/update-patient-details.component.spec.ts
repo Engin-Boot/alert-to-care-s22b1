@@ -53,7 +53,7 @@ describe('UpdatePatientDetailsComponent', () => {
     component.updatePatientDetailsForm.controls['spo2'].setValue(null);
     component.updatePatientDetailsForm.controls['dateOfBirth'].setValue(null);
     expect(component.updatePatientDetailsForm.valid).toBeFalsy();
-  })
+  });
 
   it('form should be valid when all details are filled', () => {
     component.updatePatientDetailsForm.controls['bedID'].setValue('B2111');
@@ -64,7 +64,7 @@ describe('UpdatePatientDetailsComponent', () => {
     component.updatePatientDetailsForm.controls['spo2'].setValue('unstable');
     component.updatePatientDetailsForm.controls['dateOfBirth'].setValue('10/21/1998');
     expect(component.updatePatientDetailsForm.valid).toBeTruthy();
-  })
+  });
 
   /*it('should update patient details', () => {
     spyOn(component.updatePatientDetailsForm, 'reset');

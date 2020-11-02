@@ -43,14 +43,14 @@ describe('UpdateBedDetailsComponent', () => {
     component.updateBedDetailsForm.controls['department'].setValue(null);
     component.updateBedDetailsForm.controls['occupancyStatus'].setValue(null);
     expect(component.updateBedDetailsForm.valid).toBeFalsy();
-  })
+  });
 
   it('form should be valid when all details are filled', () => {
     component.updateBedDetailsForm.controls['bedID'].setValue('B2111');
     component.updateBedDetailsForm.controls['department'].setValue('Dental');
     component.updateBedDetailsForm.controls['occupancyStatus'].setValue('Vacant');
     expect(component.updateBedDetailsForm.valid).toBeTruthy();
-  })
+  });
 
 
 });

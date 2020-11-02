@@ -42,42 +42,42 @@ export class AddNewPatientComponent implements OnInit {
    
   }
 
-    get patientID()
+    get patientID(): FormControl
   {
     return this.addPatientDetailsForm.get('patientID');
   }
 
-  get bedID()
+  get bedID(): FormControl
   {
     return this.addPatientDetailsForm.get('bedID');
   }
 
-  get name()
+  get name(): FormControl
   {
     return this.addPatientDetailsForm.get('name');
   }
 
-  get mobileNumber()
+  get mobileNumber(): FormControl
   {
     return this.addPatientDetailsForm.get('mobileNumber');
   }
 
-  get dateOfBirth()
+  get dateOfBirth(): FormControl
   {
     return this.addPatientDetailsForm.get('dateOfBirth');
   }
 
-  get spo2()
+  get spo2(): FormControl
   {
     return this.addPatientDetailsForm.get('spo2');
   }
 
-  get bpm()
+  get bpm(): FormControl
   {
     return this.addPatientDetailsForm.get('bpm');
   }
 
-  addPatientDetails(data)
+  addPatientDetails(data): void
   {
     let patientDetails = data;
     patientDetails.mobileNumber = data.mobileNumber.toString();

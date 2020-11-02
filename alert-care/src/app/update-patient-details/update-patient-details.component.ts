@@ -52,44 +52,44 @@ bedDataServiceRef: BedDataService;
   
   }
 
-  get patientID()
+  get patientID(): FormControl
   {
     return this.updatePatientDetailsForm.get('patientID');
   }
 
-  get bedID()
+  get bedID(): FormControl
   {
     return this.updatePatientDetailsForm.get('bedID');
   }
 
-  get name()
+  get name(): FormControl
   {
     return this.updatePatientDetailsForm.get('name');
   }
 
-  get mobileNumber()
+  get mobileNumber(): FormControl
   {
     return this.updatePatientDetailsForm.get('mobileNumber');
   }
 
-  get dateOfBirth()
+  get dateOfBirth(): FormControl
   {
     return this.updatePatientDetailsForm.get('dateOfBirth');
   }
 
-  get spo2()
+  get spo2(): FormControl
   {
     return this.updatePatientDetailsForm.get('spo2');
   }
 
-  get bpm()
+  get bpm(): FormControl
   {
     return this.updatePatientDetailsForm.get('bpm')
   }
 
-  updatePatientDetails(data)
+  updatePatientDetails(data): void
   {
-    data.mobileNumber.toString();
+    //data.mobileNumber.toString();
     console.log(data);
     this.patientDataServiceRef.updatePatientData(data.patientID, data).subscribe(
       data => {

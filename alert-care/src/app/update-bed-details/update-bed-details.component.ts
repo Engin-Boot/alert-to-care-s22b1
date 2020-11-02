@@ -40,7 +40,7 @@ export class UpdateBedDetailsComponent implements OnInit {
     });
   }
 
-  updateBedDetails(data)
+  updateBedDetails(data): void
   {
     console.log(data);
     this.bedDataServiceRef.updateBedData(this.id,data).subscribe(data => {
@@ -53,22 +53,22 @@ export class UpdateBedDetailsComponent implements OnInit {
      
   }
 
-  get bedID()
+  get bedID(): FormControl
   {
     return this.updateBedDetailsForm.get('bedID');
   }
 
-  get floor()
+  get floor(): FormControl
   {
     return this.updateBedDetailsForm.get('floor');
   }
 
-  get department()
+  get department(): FormControl
   {
    return this.updateBedDetailsForm.get('department');
   }
 
-  get occupancyStatus()
+  get occupancyStatus(): FormControl
   {
     return this.updateBedDetailsForm.get('occupancyStatus');
   }

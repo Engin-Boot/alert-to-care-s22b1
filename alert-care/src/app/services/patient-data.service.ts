@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {PatientData} from '../models/patient-data';
+import { PatientData } from '../models/patient-data';
+
 
 @Injectable({
   providedIn: 'root'
@@ -22,13 +23,13 @@ baseUrl: string = 'https://localhost:5001/api/PatientData/';
 
   postPatientData(patientData)
   {
-    let observableStream = this.httpClient.post(this.baseUrl,patientData);
+    let observableStream = this.httpClient.post(this.baseUrl, patientData);
     return observableStream;
   }
 
-  updatePatientData(id,patientData)
+  updatePatientData(id, patientData)
   {
-    let observableStream = this.httpClient.put(this.baseUrl+id,patientData);
+    let observableStream = this.httpClient.put(this.baseUrl+id, patientData);
     return observableStream;
   }
 

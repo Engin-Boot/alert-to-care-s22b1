@@ -6,7 +6,7 @@ import {PatientData} from '../models/patient-data';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import * as deepEqual from "deep-equal";
+import * as deepEqual from 'deep-equal';
 import { By } from '@angular/platform-browser';
 import {BedDataService} from '../services/bed-data.service';
 
@@ -44,14 +44,14 @@ describe('ViewPatientDetailsComponent', () => {
 
   it('should check if the object is of type PatientData and it is not null', () => {
     let data: PatientData = {
-      bedID: "B2111",
-      bpm: "unstable",
-      dateOfBirth: "1998-10-21",
-      mobileNumber: "9174661167",
-      name: "Shivani Bollabattin",
-      patientID: "P1",
-      spo2: "unstable"
-    }
+      bedID: 'B2111',
+      bpm: 'unstable',
+      dateOfBirth: '1998-10-21',
+      mobileNumber: '9174661167',
+      name: 'Shivani Bollabattin',
+      patientID: 'P1',
+      spo2: 'unstable'
+    };
 
     component = fixture.componentInstance;
     component.ngOnInit();

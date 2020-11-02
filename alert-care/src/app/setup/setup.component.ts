@@ -43,22 +43,22 @@ export class SetupComponent implements OnInit{
     );
   }
 
-  get floor()
+  get floor(): FormControl
   {
     return this.setupDetailsForm.get('floor');
   }
 
-  get noOfBed()
+  get noOfBed(): FormControl
   {
     return this.setupDetailsForm.get('noOfBed');
   }
 
-  get layout()
+  get layout(): FormControl
   {
     return this.setupDetailsForm.get('layout');
   }
 
-  onSubmit(data){
+  onSubmit(data): void {
     this.bedConfigData = data;
     this.bedConfigData.noOfBed = this.bedConfigData.noOfBed.toString();
     console.log(this.bedConfigData);
@@ -77,8 +77,6 @@ export class SetupComponent implements OnInit{
           this.bedData.bedConfigurationID = data.configurationID;
           this.bedData.department = '';
           this.bedData.occupancyStatus = 'Vacant';
-          //this.bedData = new BedData(id,data.configurationID,'','Vacant');
-          
           this.bedDataService.addBedData(this.bedData)
           .subscribe(
 

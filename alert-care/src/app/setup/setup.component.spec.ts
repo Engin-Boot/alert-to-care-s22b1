@@ -13,7 +13,7 @@ import { By } from '@angular/platform-browser';
 
 
 class RouterStub {
-  navigate(url: string) { return url; }
+  navigate(url: string): string { return url; }
 }
 
 describe('SetupComponent', () => {
@@ -63,7 +63,7 @@ describe('SetupComponent', () => {
 
     component.setupDetailsForm.controls['floor'].setValue(20);
     component.setupDetailsForm.controls['noOfBed'].setValue(2);
-    component.setupDetailsForm.controls['layout'].setValue("opposite");
+    component.setupDetailsForm.controls['layout'].setValue('opposite');
 
     expect(component.setupDetailsForm.valid).toBeTruthy();
   });
