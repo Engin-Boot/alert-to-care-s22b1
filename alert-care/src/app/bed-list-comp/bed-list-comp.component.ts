@@ -23,7 +23,7 @@ route: Router;
 acr: ActivatedRoute;
 id;
 
-  constructor(bedDataServiceRef:BedDataService, route:Router, patientDataServiceRef:PatientDataService, location:Location, bedConfServiceRef:BedConfigService, acr:ActivatedRoute) {
+  constructor(bedDataServiceRef: BedDataService, route: Router, patientDataServiceRef: PatientDataService, location: Location, bedConfServiceRef: BedConfigService, acr: ActivatedRoute) {
     this.patientDataServiceRef = patientDataServiceRef;
     this.bedDataServiceRef = bedDataServiceRef;
     this.route = route;

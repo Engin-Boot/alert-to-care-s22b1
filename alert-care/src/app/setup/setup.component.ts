@@ -78,9 +78,7 @@ export class SetupComponent implements OnInit{
           this.bedData.department = '';
           this.bedData.occupancyStatus = 'Vacant';
           this.bedDataService.addBedData(this.bedData)
-          .subscribe(
-
-            data => console.log(data),
+          .subscribe(data => console.log(data),
             error => this.apiLogger.write(error.message)
           );
         }

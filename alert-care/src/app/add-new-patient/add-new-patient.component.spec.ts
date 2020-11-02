@@ -6,16 +6,20 @@ import {PatientDataService} from '../services/patient-data.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { of } from 'rxjs';
 import { By } from '@angular/platform-browser';
+import{ PatientDataStub} from '../stubs/patientDataStub'
+import { PatientData } from '../models/patient-data';
 
 describe('AddNewPatientComponent', () => {
   let component: AddNewPatientComponent;
   let fixture: ComponentFixture<AddNewPatientComponent>;
+  let patientDataServiceRef : PatientDataService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ AddNewPatientComponent ],
       imports: [ HttpClientTestingModule ],
-      providers: [BedDataService, PatientDataService, 
+      providers: [BedDataService, 
+      {provide:PatientDataService, useClass:PatientDataStub},
       {provide: ActivatedRoute, useValue: {snapshot: {params: {'bedId': 'B2111'}}}}
       ]
     })
@@ -26,6 +30,8 @@ describe('AddNewPatientComponent', () => {
     fixture = TestBed.createComponent(AddNewPatientComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+
+    patientDataServiceRef = TestBed.inject(PatientDataService);
   });
 
   it('should create', () => {
@@ -61,5 +67,33 @@ describe('AddNewPatientComponent', () => {
     component.addPatientDetailsForm.controls['dateOfBirth'].setValue('10/21/1998');
     expect(component.addPatientDetailsForm.valid).toBeTruthy();
   })
+  it('should add patient details successfully',  () => {
+   
+    let patientData:PatientData = ({
+      bedID : "B2111",
+      bpm : "unstable",
+      dateOfBirth: "1998-10-21",
+      mobileNumber: "9174661167",
+      name: "Shivani Bollabattin",
+      patientID: 'P1',
+      spo2: "unstable" 
+    });
+
+    let addDetailsSpy = spyOn(component,'addPatientDetails')
+    .and
+    .callThrough();
+    const postDataSpy = spyOn(patientDataServiceRef, 'postPatientData')
+    .and
+    .callThrough();
+   
+    
+    component.addPatientDetails(patientData);
+    fixture.detectChanges();
+
+    expect(addDetailsSpy).toHaveBeenCalled();
+
+    expect(postDataSpy).toHaveBeenCalled();
+
+  });
 
 });

@@ -17,25 +17,25 @@ baseUrl: string = 'https://localhost:5001/api/PatientData/';
 
   getPatientDataById(id)
   {
-    let observableStream = this.httpClient.get<PatientData>(this.baseUrl+id);
+    const observableStream = this.httpClient.get<PatientData>(this.baseUrl+id);
     return observableStream;
   }
 
   postPatientData(patientData)
   {
-    let observableStream = this.httpClient.post(this.baseUrl, patientData);
+    const observableStream = this.httpClient.post(this.baseUrl, patientData);
     return observableStream;
   }
 
   updatePatientData(id, patientData)
   {
-    let observableStream = this.httpClient.put(this.baseUrl+id, patientData);
+    const observableStream = this.httpClient.put(this.baseUrl+id, patientData);
     return observableStream;
   }
 
   deletePatientData(id)
   {
-    let observableStream = this.httpClient.delete(this.baseUrl+id);
+    const observableStream = this.httpClient.delete(this.baseUrl+id);
     return observableStream;
   }
 }

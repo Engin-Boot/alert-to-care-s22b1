@@ -9,7 +9,7 @@ import {BedData} from '../models/bed-data';
 export class BedConfigService {
 
   httpClient: HttpClient;
-  baseUrl: string= 'https://localhost:5001/api/BedConfiguration/';
+  baseUrl: string = 'https://localhost:5001/api/BedConfiguration/';
 
   constructor(httpClient: HttpClient) {
  
@@ -18,13 +18,13 @@ export class BedConfigService {
 
    addBedConfigData(bedConfigData)
    {
-      let observableStream = this.httpClient.post<BedConfig>(this.baseUrl,bedConfigData);
+      const observableStream = this.httpClient.post<BedConfig>(this.baseUrl,bedConfigData);
       return observableStream;
    }
 
    getBedsForGivenBedConfigurationId(id)
    {
-     let observableStream = this.httpClient.get<BedData[]>(this.baseUrl+'beds-assigned-for-configuration/'+id);
+     const observableStream = this.httpClient.get<BedData[]>(this.baseUrl+'beds-assigned-for-configuration/'+id);
      return observableStream;
    }
 }

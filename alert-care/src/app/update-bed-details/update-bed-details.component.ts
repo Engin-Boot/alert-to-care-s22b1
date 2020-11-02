@@ -43,11 +43,13 @@ export class UpdateBedDetailsComponent implements OnInit {
   updateBedDetails(data): void
   {
     console.log(data);
-    this.bedDataServiceRef.updateBedData(this.id,data).subscribe(data => {
+    this.bedDataServiceRef.updateBedData(this.id, data).subscribe(data => {
+      console.log(data);
       this.updateSuccess = true;
       this.updateBedDetailsForm.reset(); 
      
     },err => {
+      console.log(err);
       this.updateFailed = true;
     });
      

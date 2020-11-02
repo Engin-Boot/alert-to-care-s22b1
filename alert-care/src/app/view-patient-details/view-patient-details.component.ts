@@ -27,8 +27,7 @@ bedDataServiceRef: BedDataService;
   ngOnInit(): void {
     this.id = this.route.snapshot.params['bedId'];
       this.bedDataServiceRef.getPatientAllocatedToBed(this.id).subscribe(data => {
-      this.patientDataServiceRef.getPatientDataById(data[0].patientID).subscribe(
-      data => {
+      this.patientDataServiceRef.getPatientDataById(data[0].patientID).subscribe(data => {
         console.log(data);
         this.patientData.patientID = data.patientID;
         this.patientData.name = data.name;

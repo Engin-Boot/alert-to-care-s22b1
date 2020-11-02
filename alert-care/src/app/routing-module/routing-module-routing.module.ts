@@ -9,11 +9,11 @@ import {BedListCompComponent} from '../bed-list-comp/bed-list-comp.component';
 import {SetupComponent} from '../setup/setup.component';
 
 export const routes: Routes = [
-  {path: "" , redirectTo: 'home', pathMatch: 'full'},
+  {path: '' , redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   
   {path: 'bedList/:configurationId', component: BedListCompComponent, children: [
-    {path: "" , redirectTo: 'home', pathMatch: 'full'},  
+    {path: '' , redirectTo: 'home', pathMatch: 'full'},  
   ]},
   {path: 'viewPatient/:bedId', component: ViewPatientDetailsComponent},
   {path: 'addPatient/:bedId', component: AddNewPatientComponent},

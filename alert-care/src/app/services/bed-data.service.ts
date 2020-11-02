@@ -17,38 +17,38 @@ export class BedDataService {
 
    getBedData()
    {
-     let observableStream = this.httpClient.get<BedData[]>(this.baseUrl);
+     const observableStream = this.httpClient.get<BedData[]>(this.baseUrl);
      return observableStream;
    }
 
    getBedDataById(id)
    {
-     let observableStream = this.httpClient.get<BedData>(this.baseUrl+id);
+     const observableStream = this.httpClient.get<BedData>(this.baseUrl+id);
      return observableStream;
    }
 
-   updateBedData(id,data)
+   updateBedData(id, data)
    {
-     let observableStream = this.httpClient.put(this.baseUrl+id,data);
+     const observableStream = this.httpClient.put(this.baseUrl+id, data);
      return observableStream;
    }
 
    getPatientAllocatedToBed(id)
    {
-     let observableStream = this.httpClient.get<PatientData>(this.baseUrl+'patient-allocated-to-bed/'+id);
+     const observableStream = this.httpClient.get<PatientData>(this.baseUrl+'patient-allocated-to-bed/'+id);
      return observableStream;
    }
 
    addBedData(bedData)
    {
-      let observableStream = this.httpClient.post(this.baseUrl,bedData);
+      const observableStream = this.httpClient.post(this.baseUrl,bedData);
       return observableStream;
    }
 
    updateOccupancyStatusAndDepartmentWhenPatientDeleted(bedId)
   {
     this.getBedDataById(bedId).subscribe(
-      data=>{
+      data => {
         let updatedBedDetails = data;
         updatedBedDetails.occupancyStatus = 'Vacant';
         updatedBedDetails.department = '';
@@ -57,13 +57,13 @@ export class BedDataService {
           err=>{console.log('occupancy status and Department update failed');}
         )
       }
-    )
+    );
   }
 
   updateOccupancyStatus(bedId,status)
   {
     this.getBedDataById(bedId).subscribe(
-      data=>{
+      data => {
         var updatedBedDetails = data;
         updatedBedDetails.occupancyStatus = status;
         this.updateBedData(bedId,updatedBedDetails).subscribe(
@@ -71,7 +71,7 @@ export class BedDataService {
           err=>{console.log('occupancy status update failed');}
         )
       }
-    )
+    );
   }
   
 }

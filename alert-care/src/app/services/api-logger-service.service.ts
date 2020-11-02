@@ -7,7 +7,7 @@ export class ApiLoggerServiceService {
 
   constructor() { }
 
-  write(message: string){
+  write(message: string): void{
       console.log(`Api Logging ${message} `);
     }
   

@@ -10,14 +10,12 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { routes } from '../routing-module/routing-module-routing.module';
 
-
-
 describe('BedListCompComponent', () => {
   let component: BedListCompComponent;
   let fixture: ComponentFixture<BedListCompComponent>;
   let location: Location;
   let route: Router;
-  let routerSpy =  {navigateByUrl: jasmine.createSpy('navigateByUrl')}
+  const routerSpy =  {navigateByUrl: jasmine.createSpy('navigateByUrl')};
   let bedDataServiceRef: BedDataService; 
 
   beforeEach(async () => {
@@ -74,6 +72,22 @@ describe('BedListCompComponent', () => {
     tick();
     expect (routerSpy.navigateByUrl).toHaveBeenCalledWith('updatePatientDetails/B2111');
     
+  }));
+
+  it('disable ManagePatientDetailsButton When OccupancyStatus is Vacant', fakeAsync(() => {
+    component.disableManagePatientDetailsButtonWhenOccupancyStatusisVacant('Vacant');
+
+    tick();
+
+    expect(component.check).toBeTrue();
+  }));
+
+  it('enable ManagePatientDetailsButton When OccupancyStatus is Vacant', fakeAsync(() => {
+    component.disableManagePatientDetailsButtonWhenOccupancyStatusisVacant('Occupied');
+
+    tick();
+
+    expect(component.check).toBeFalse();
   }));
 
 

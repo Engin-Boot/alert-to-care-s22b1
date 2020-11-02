@@ -40,8 +40,7 @@ bedDataServiceRef: BedDataService;
     
 
     this.bedDataServiceRef.getPatientAllocatedToBed(this.id).subscribe( data => {
-        this.patientDataServiceRef.getPatientDataById(data[0].patientID).subscribe(
-          data => {
+        this.patientDataServiceRef.getPatientDataById(data[0].patientID).subscribe(data => {
             console.log(data);
             this.updatePatientDetailsForm.setValue(data);
           }
@@ -91,8 +90,7 @@ bedDataServiceRef: BedDataService;
   {
     //data.mobileNumber.toString();
     console.log(data);
-    this.patientDataServiceRef.updatePatientData(data.patientID, data).subscribe(
-      data => {
+    this.patientDataServiceRef.updatePatientData(data.patientID, data).subscribe(data => {
         this.updateSuccess = true;
         console.log('true');
         this.updatePatientDetailsForm.reset();
