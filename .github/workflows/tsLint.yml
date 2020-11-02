@@ -29,4 +29,4 @@ jobs:
       - name: Run TsLint
         run: |
              cd alert-care
-             ng lint
+             npm run lint
